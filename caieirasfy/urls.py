@@ -18,6 +18,8 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from musica.views import MusicaViewSet
+from artista.views import ArtistaViewSet
+from artista.views import ArtistaList, ArtistaDetails
 from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
@@ -26,6 +28,8 @@ router.register(r'musica', MusicaViewSet)
 
 
 urlpatterns = [
+    path('artista/', ArtistaList.as_view()),
+    path('artista/<int:id>', ArtistaDetails.as_view()),
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('auth-api/', obtain_auth_token),

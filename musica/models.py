@@ -1,4 +1,5 @@
 from django.db import models
+from artista.models import Artista
 
 # Create your models here.
 class Musica(models.Model):
@@ -6,15 +7,16 @@ class Musica(models.Model):
         max_length=255,
         verbose_name='nome'
     )
-    artista = models.CharField(
-        max_length=255,
-        verbose_name ='artista'
+    artista = models.ForeignKey(
+        Artista,
+        on_delete=models.CASCADE,
+        related_name='musica'
     )
-    genero = models.CharField(
+    tempo = models.CharField(
         max_length=255,
         verbose_name='tempo'
     )
-    link = models.CharField(
+    genero = models.CharField(
         max_length=255,
         verbose_name='genero'
     )
