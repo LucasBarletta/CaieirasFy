@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from musica.models import Musica
+from musica.models import Musica    
 from musica.serializers import MusicaSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.authentication import TokenAuthentication
